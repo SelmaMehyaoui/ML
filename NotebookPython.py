@@ -1,6 +1,11 @@
 import numpy as np # linear algebra
 import pandas as pd # data processing
 import plotly as pl
+from sklearn.metrics import mean_absolute_error
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.metrics import confusion_matrix
+from sklearn.ensemble import RandomForestClassifier
 # Input data files are available in the read-only "../input/" directory on Kaggle
 
 import os
@@ -11,13 +16,6 @@ for dirname, _, filenames in os.walk('/kaggle/input'):
 Transfusion=pd.read_csv('/kaggle/input/blood-transfusion-dataset/transfusion.csv')
 Covid=pd.read_csv('../input/covid-19-coronavirus-pandemic-dataset/Covid Live.csv')
 Diabete=pd.read_csv('../input/diabetes-dataset/diabetes.csv')
-
-import pandas as pd
-from sklearn.metrics import mean_absolute_error
-from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeRegressor
-from sklearn.metrics import confusion_matrix
-from sklearn.ensemble import RandomForestClassifier
 
 
 # Create target object and call it y
