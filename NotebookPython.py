@@ -6,13 +6,14 @@ from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.metrics import confusion_matrix
 from sklearn.ensemble import RandomForestClassifier
-# Input data files are available in the read-only "../input/" directory on Kaggle
+
 
 import os
 for dirname, _, filenames in os.walk('/kaggle/input'):
     for filename in filenames:
         print(os.path.join(dirname, filename))
-
+        
+# Input data files are available in the read-only "../input/" directory on Kaggle
 Transfusion=pd.read_csv('/kaggle/input/blood-transfusion-dataset/transfusion.csv')
 Covid=pd.read_csv('../input/covid-19-coronavirus-pandemic-dataset/Covid Live.csv')
 Diabete=pd.read_csv('../input/diabetes-dataset/diabetes.csv')
@@ -139,8 +140,8 @@ from sklearn.preprocessing import OneHotEncoder
 X_train_full, X_valid_full, y_train, y_valid = train_test_split(X, y, train_size=0.8, test_size=0.2,
                                                                 random_state=0)
 
-# "Cardinality" means the number of unique values in a column
-# Select categorical columns with relatively low cardinality (convenient but arbitrary)
+
+# Select categorical columns with relatively low cardinality 
 categorical_cols = [cname for cname in X_train_full.columns if X_train_full[cname].nunique() < 10 and 
                         X_train_full[cname].dtype == "object"]
 
