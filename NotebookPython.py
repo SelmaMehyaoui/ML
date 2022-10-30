@@ -1,8 +1,7 @@
 import numpy as np # linear algebra
-import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import pandas as pd # data processing
 import plotly as pl
-# Input data files are available in the read-only "../input/" directory
-# For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory
+# Input data files are available in the read-only "../input/" directory on Kaggle
 
 import os
 for dirname, _, filenames in os.walk('/kaggle/input'):
@@ -18,6 +17,8 @@ from sklearn.metrics import mean_absolute_error
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.metrics import confusion_matrix
+from sklearn.ensemble import RandomForestClassifier
+
 
 # Create target object and call it y
 y = Diabete.Outcome
@@ -62,18 +63,6 @@ val_mae = mean_absolute_error(val_predictions, val_y)
 #print(confusion_matrix)
 print("Validation MAE for best value of max_leaf_nodes: {:,.0f}".format(val_mae))
 
-
-# Set up code checking
-from learntools.core import binder
-binder.bind(globals())
-from learntools.machine_learning.ex6 import *
-print("\nSetup complete")
-
-import pandas as pd
-from sklearn.metrics import mean_absolute_error
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import confusion_matrix
 
 #RANDOM FOREST
 # Specify Model
